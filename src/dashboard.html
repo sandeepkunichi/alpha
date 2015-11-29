@@ -19,13 +19,14 @@
 <body>
     <nav class="navbar navbar-default" role="navigation">
         <div class="container">
-            <div class="navbar-brand navbar-brand-centered animated wow fadeInDown" data-wow-delay="0s" style="color: #01838C;font-size: 34px; font-weight: bold; padding: 3%;">Alpha</div>
+            <div class="navbar-brand navbar-brand-centered animated wow fadeInLeft pull-left" data-wow-delay="0s" style="color: #01838C;font-size: 34px; font-weight: bold; padding: 3%;">Alpha</div>
+			<div class="navbar-brand navbar-brand-centered animated wow fadeInRight pull-right" data-wow-delay="0s" style="color: #01838C;font-size: 16px; font-weight: bold; padding: 3%;">suraj@test.com | <a href="logout" style="color: #01838C;font-size: 16px; font-weight: bold; padding: 3%;">LOGOUT</a></div>
         </div>
     </nav>
 	<div class="main">
 		<div class="container" style="background:#01838C" style="padding-top:0%">
 			<div class="row">
-				<div class="col-md-4 bootcards-list" style="padding:3%;" id="cardlist1"></div>
+				<div class="col-md-4 bootcards-list list1" style="padding:3%;" id="cardlist1"></div>
 				<div class="col-md-4 bootcards-list" style="padding:3%;" id="cardlist2"></div>
 				<div class="col-md-4 bootcards-list" style="padding:3%;" id="cardlist3"></div>
 			</div>
@@ -53,34 +54,56 @@
 			var msg1 = {
 				source: "TOI",
 				title: "France in danger",
-				date: Date.now(),
-				content:   "Paris put on high alert after terror strikes.",
+				date: 1447668487000,
+				content:   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce accumsan fermentum tincidunt. Ut non posuere nibh. Suspendisse cursus, eros vitae cursus pulvinar, urna velit pellentesque nunc, sit amet dapibus orci nunc vel risus. Etiam euismod risus ac magna rhoncus vulputate. Etiam pellentesque faucibus tempus. Aliquam pulvinar rutrum lacus eu faucibus. Pellentesque commodo egestas laoreet. Nam et blandit elit. Phasellus at dui id felis dictum feugiat quis ac nunc. Nunc posuere, est vehicula placerat blandit, nisi elit aliquet eros, in hendrerit nisl dui a dui. Sed ac vestibulum metus..",
 				image:   "",
 				url: "https://toi.com"
 			};
 			var msg2 = {
 				source: "Hindu",
 				title: "Modi in UK",
-				date: Date.now()+132171212123,
-				content:   "Modi to have tea with the queen of England and her poodles.",
+				date: 1447582087000,
+				content:   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce accumsan fermentum tincidunt. Ut non posuere nibh. Suspendisse cursus, eros vitae cursus pulvinar, urna velit pellentesque nunc, sit amet dapibus orci nunc vel risus. Etiam euismod risus ac magna rhoncus vulputate. Etiam pellentesque faucibus tempus. Aliquam pulvinar rutrum lacus eu faucibus. Pellentesque commodo egestas laoreet. Nam et blandit elit. Phasellus at dui id felis dictum feugiat quis ac nunc. Nunc posuere, est vehicula placerat blandit, nisi elit aliquet eros, in hendrerit nisl dui a dui. Sed ac vestibulum metus.",
 				image:   "http://images.indianexpress.com/2013/01/modicameron-759.jpg",
 				url: "https://hindu.com"
 			};
 			var msg3 = {
 				source: "Apple",
 				title: "iMoney unveiled",
-				date: Date.now()-3263721637,
+				date: 1433671687000,
+				content:   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce accumsan fermentum tincidunt. Ut non posuere nibh. Suspendisse cursus, eros vitae cursus pulvinar, urna velit pellentesque nunc, sit amet dapibus orci nunc vel risus. Etiam euismod risus ac magna rhoncus vulputate. Etiam pellentesque faucibus tempus. Aliquam pulvinar rutrum lacus eu faucibus. Pellentesque commodo egestas laoreet. Nam et blandit elit. Phasellus at dui id felis dictum feugiat quis ac nunc. Nunc posuere, est vehicula placerat blandit, nisi elit aliquet eros, in hendrerit nisl dui a dui. Sed ac vestibulum metus.",
 				image:   "",
 				url: "https://apple.com"
 			};
 			var msg1ToSend = JSON.stringify(msg1);
 			var msg2ToSend = JSON.stringify(msg2);
 			var msg3ToSend = JSON.stringify(msg3);
-			ws.send(msg1ToSend);
+			ws.send(msg2ToSend);
 			setTimeout(function(){
-				ws.send(msg2ToSend);
+				ws.send(msg1ToSend);
 				setTimeout(function(){
 					ws.send(msg3ToSend);
+					setTimeout(function(){
+						ws.send(msg2ToSend);
+							setTimeout(function(){
+							ws.send(msg3ToSend);
+							setTimeout(function(){
+								ws.send(msg1ToSend);
+								setTimeout(function(){
+									ws.send(msg1ToSend);
+										setTimeout(function(){
+											ws.send(msg2ToSend);
+											setTimeout(function(){
+												ws.send(msg3ToSend);
+												setTimeout(function(){
+													ws.send(msg2ToSend);
+												}, 3000);
+											}, 3000);
+										}, 3000);
+								}, 3000);
+							}, 3000);
+						}, 3000);
+					}, 3000);
 				}, 3000);
 			}, 2000);
 		};
@@ -91,17 +114,36 @@
 			var day = date.getDate();
 			var month = date.getMonth()+1;
 			var year = date.getFullYear();
-			var date = day+"-"+month+"-"+year;
-			var card = '<div class="panel panel-default card animated wow fadeInLeft" id="newcard" data-wow-delay="0s"><div class="panel-heading clearfix"><h3 class="panel-title pull-left"><b>'+JSON.parse(received_msg).title+'</b></h3></div><img src="'+JSON.parse(received_msg).image+'" class="img-responsive"/><div class="list-group"><div class="list-group-item"><p class="list-group-item-text">Source</p><h4 class="list-group-item-heading">'+JSON.parse(received_msg).source+'</h4></div><div class="list-group-item"><p class="list-group-item-text">Date</p><h4 class="list-group-item-heading date">'+date+'</h4></div><div class="list-group-item"><p class="list-group-item-text">'+JSON.parse(received_msg).content+'</p></div></div><div class="panel-footer"><a target="_blank" href="'+JSON.parse(received_msg).url+'">'+JSON.parse(received_msg).url+'</a></div></div>';
-			$('#cardlist1').append(card);
-			$('#newcard').removeClass("animated wow fadeInLeft");
-			//$('#cardlist2').append(card);
-			//$('#cardlist3').append(card);
+			var dateString = day+"-"+month+"-"+year;
+			timeSince = getTimeSince(date);
+			var card = '<div class="panel panel-default card card_one" id="newcard'+$(".card_one").length+'" data-wow-delay="0s"><div class="panel-heading clearfix"><h3 class="panel-title pull-left"><b>'+JSON.parse(received_msg).source+'</b></h3><h3 class="panel-title pull-right"><b>'+timeSince+' ago</b><p class="date" style="display:none;">'+dateString+'</p></h3></div><img src="'+JSON.parse(received_msg).image+'" class="img-responsive"/><div class="list-group"><div class="list-group-item"><h4 class="list-group-item-heading" style="font-size:12px;">'+JSON.parse(received_msg).content+'</h4></div></div><div class="panel-footer"><a target="_blank" href="'+JSON.parse(received_msg).url+'">'+JSON.parse(received_msg).url+'</a></div></div>';
+			$(card).hide().appendTo('#cardlist1').fadeIn('slow');
 			$('#cardlist1 .card').sort(sortDescending).appendTo('#cardlist1');
-			//$('#newcard').removeClass("animated wow fadeInDown");
-			//$('#cardlist2 .card').sort(sortDescending).appendTo('#cardlist2');
-			//$('#cardlist3 .card').sort(sortDescending).appendTo('#cardlist3');
 		};
+		function getTimeSince(date) {
+			var seconds = Math.floor((new Date() - date) / 1000);
+			var interval = Math.floor(seconds / 31536000);
+			if (interval > 1) {
+				return interval + " years";
+			}
+			interval = Math.floor(seconds / 2592000);
+			if (interval > 1) {
+				return interval + " months";
+			}
+			interval = Math.floor(seconds / 86400);
+			if (interval > 1) {
+				return interval + " days";
+			}
+			interval = Math.floor(seconds / 3600);
+			if (interval > 1) {
+				return interval + " hours";
+			}
+			interval = Math.floor(seconds / 60);
+			if (interval > 1) {
+				return interval + " minutes";
+			}
+			return Math.floor(seconds) + " seconds";
+		}
 	</script>
 </body>
 </html>
