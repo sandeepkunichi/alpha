@@ -2,42 +2,35 @@
 <head>
 	<title>Alpha</title>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
-
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css"/>
-	<link rel="stylesheet" type="text/css" href="../css/animate.css"/>
-	<link rel="stylesheet" type="text/css" href="../css/main.css"/>
-	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootcards/1.0.0/css/bootcards-desktop.min.css">
 	
 	<script type="text/javascript" src="../js/jquery.js"></script>
-	<script type="text/javascript" src="../js/wow.js"></script>
 	<script type="text/javascript" src="../js/jquery.min.js"></script>
-	<script type="text/javascript" src="../js/main.js"></script>	
     <script type="text/javascript" src="../js/bootstrap.min.js"></script> 
 </head>
-<body>
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="container">
-            <div class="navbar-brand navbar-brand-centered animated wow fadeInLeft pull-left" data-wow-delay="0s" style="color: #01838C;font-size: 34px; font-weight: bold; padding: 3%;">Alpha</div>
-			<div class="navbar-brand navbar-brand-centered animated wow fadeInRight pull-right" data-wow-delay="0s" style="color: #01838C;font-size: 16px; font-weight: bold; padding: 3%;">suraj@test.com | <a href="logout" style="color: #01838C;font-size: 16px; font-weight: bold; padding: 3%;">LOGOUT</a></div>
-        </div>
-    </nav>
+<body style="padding-top:0px">
+	<header>
+		<div class="container">
+			<p>
+				<span class="pull-left" style="font-style:italic">
+					ALPHA
+				</span>
+				<span class="pull-right"> 						
+					Hi test@test.com
+				</span> 
+			</p>
+		</div>
+	</header>
 	<div class="main">
-		<div class="container" style="background:#01838C" style="padding-top:0%">
+		<div class="container">
 			<div class="row">
-				<div class="col-md-4 bootcards-list list1" style="padding:3%;" id="cardlist1"></div>
 				<div class="col-md-4 bootcards-list" style="padding:3%;" id="cardlist2"></div>
+				<div class="col-md-4 bootcards-list list1" style="padding:3%;" id="cardlist1"></div>
 				<div class="col-md-4 bootcards-list" style="padding:3%;" id="cardlist3"></div>
 			</div>
 		</div>
 	</div>
-	<footer>
-		  <div class="container">
-			 <div class="row">             
-			 </div>                
-        </div>
-    </footer>
 	<script>
 		function sortDescending(a, b) {
 			var date1  = $(a).find(".date").text();
@@ -55,7 +48,7 @@
 				source: "TOI",
 				title: "France in danger",
 				date: 1447668487000,
-				content:   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce accumsan fermentum tincidunt. Ut non posuere nibh. Suspendisse cursus, eros vitae cursus pulvinar, urna velit pellentesque nunc, sit amet dapibus orci nunc vel risus. Etiam euismod risus ac magna rhoncus vulputate. Etiam pellentesque faucibus tempus. Aliquam pulvinar rutrum lacus eu faucibus. Pellentesque commodo egestas laoreet. Nam et blandit elit. Phasellus at dui id felis dictum feugiat quis ac nunc. Nunc posuere, est vehicula placerat blandit, nisi elit aliquet eros, in hendrerit nisl dui a dui. Sed ac vestibulum metus..",
+				content:   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce accumsan fermentum tincidunt. Ut non posuere nibh.",
 				image:   "",
 				url: "https://toi.com"
 			};
@@ -63,15 +56,15 @@
 				source: "Hindu",
 				title: "Modi in UK",
 				date: 1447582087000,
-				content:   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce accumsan fermentum tincidunt. Ut non posuere nibh. Suspendisse cursus, eros vitae cursus pulvinar, urna velit pellentesque nunc, sit amet dapibus orci nunc vel risus. Etiam euismod risus ac magna rhoncus vulputate. Etiam pellentesque faucibus tempus. Aliquam pulvinar rutrum lacus eu faucibus. Pellentesque commodo egestas laoreet. Nam et blandit elit. Phasellus at dui id felis dictum feugiat quis ac nunc. Nunc posuere, est vehicula placerat blandit, nisi elit aliquet eros, in hendrerit nisl dui a dui. Sed ac vestibulum metus.",
-				image:   "http://images.indianexpress.com/2013/01/modicameron-759.jpg",
+				content:   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce accumsan fermentum tincidunt. Ut non posuere nibh.",
+				image:   "",
 				url: "https://hindu.com"
 			};
 			var msg3 = {
 				source: "Apple",
 				title: "iMoney unveiled",
 				date: 1433671687000,
-				content:   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce accumsan fermentum tincidunt. Ut non posuere nibh. Suspendisse cursus, eros vitae cursus pulvinar, urna velit pellentesque nunc, sit amet dapibus orci nunc vel risus. Etiam euismod risus ac magna rhoncus vulputate. Etiam pellentesque faucibus tempus. Aliquam pulvinar rutrum lacus eu faucibus. Pellentesque commodo egestas laoreet. Nam et blandit elit. Phasellus at dui id felis dictum feugiat quis ac nunc. Nunc posuere, est vehicula placerat blandit, nisi elit aliquet eros, in hendrerit nisl dui a dui. Sed ac vestibulum metus.",
+				content:   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce accumsan fermentum tincidunt. Ut non posuere nibh.",
 				image:   "",
 				url: "https://apple.com"
 			};
@@ -116,7 +109,8 @@
 			var year = date.getFullYear();
 			var dateString = day+"-"+month+"-"+year;
 			timeSince = getTimeSince(date);
-			var card = '<div class="panel panel-default card card_one" id="newcard'+$(".card_one").length+'" data-wow-delay="0s"><div class="panel-heading clearfix"><h3 class="panel-title pull-left"><b>'+JSON.parse(received_msg).source+'</b></h3><h3 class="panel-title pull-right"><b>'+timeSince+' ago</b><p class="date" style="display:none;">'+dateString+'</p></h3></div><img src="'+JSON.parse(received_msg).image+'" class="img-responsive"/><div class="list-group"><div class="list-group-item"><h4 class="list-group-item-heading" style="font-size:12px;">'+JSON.parse(received_msg).content+'</h4></div></div><div class="panel-footer"><a target="_blank" href="'+JSON.parse(received_msg).url+'">'+JSON.parse(received_msg).url+'</a></div></div>';
+			var card = '<div class="panel panel-default card card_one" id="newcard'+$(".card_one").length+'" style="margin:1px"><div class="panel-heading clearfix" style="padding-top:0px;padding-bottom:0px"><h4 class="panel-title pull-left" style="font-size:12px;"><b>'+JSON.parse(received_msg).source+'</b></h4><h4 class="panel-title pull-right"><b style="font-size:12px;">'+timeSince+' ago</b><p class="date" style="display:none;">'+dateString+'</p></h4></div><div class="list-group"><div class="list-group-item"><h5 class="list-group-item-heading" style="font-size:12px;">'+JSON.parse(received_msg).content+'</h5></div></div></div>';
+			
 			$(card).hide().appendTo('#cardlist1').fadeIn('slow');
 			$('#cardlist1 .card').sort(sortDescending).appendTo('#cardlist1');
 		};
